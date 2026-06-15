@@ -1952,7 +1952,7 @@ int main(int argc, char* argv[]) {
     int stop_threshold = 30;
     int level = 0;
 
-    while (true) {
+    while (false) {
         std::vector<int> placed_on_sn(num_supernodes + 1, -1);
         for (int i = 1; i <= num_supernodes; ++i) {
             placed_on_sn[i] = current_res.placed_on.at(i);
@@ -2023,7 +2023,8 @@ int main(int argc, char* argv[]) {
     std::clock_t end_time2 = std::clock();
     double cpu_time_used2 = static_cast<double>(end_time2 - start_time) / CLOCKS_PER_SEC;
     std::cout << "\nRunning time until refinement in the flat graph: " << cpu_time_used2 << " s\n";
-    
+
+    std::exit(0); //For CODA-ML: remove this line and change line 1955 to while(true). Default is CODA-Flat.
     
     std::cout << "\n==================================================\n";
     std::cout << "STEP 4: Uncoarsening Phase\n";
